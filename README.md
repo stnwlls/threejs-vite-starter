@@ -8,10 +8,8 @@ You need Node.js and npm installed before using this starter. npm is used to ins
 
 npm ships with Node.js. Choose the install method you prefer from the official docs:
 
-```txt
-https://nodejs.org/en/download
-https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-```
+- [Node.js downloads](https://nodejs.org/en/download)
+- [npm install docs](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 Check that both commands work:
 
@@ -22,11 +20,17 @@ npm --version
 
 This starter uses Vite for the dev server and production build. Vite is installed locally from `package.json` when you run `npm install`; you do not need to install Vite globally.
 
-Vite docs:
+Learn more about Vite:
 
-```txt
-https://vite.dev/guide/
-```
+- [Vite website](https://vite.dev/)
+- [Vite guide](https://vite.dev/guide/)
+
+This starter is built with Three.js. Credit to the Three.js project for the rendering library this setup is based on.
+
+Learn more about Three.js:
+
+- [Three.js website](https://threejs.org/)
+- [Three.js docs](https://threejs.org/docs/)
 
 ## Use This Starter
 
