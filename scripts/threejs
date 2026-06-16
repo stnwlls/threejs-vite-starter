@@ -4,6 +4,13 @@ set -euo pipefail
 if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
   printf '%s\n' "Usage: threejs"
   printf '%s\n' "Scaffold a minimal Vite + Three.js project in the current directory."
+  printf '\n%s\n' "Requirements:"
+  printf '  %s\n' "Node.js and npm must be installed. npm ships with Node.js."
+  printf '  %s\n' "Node.js downloads: https://nodejs.org/en/download"
+  printf '  %s\n' "npm install docs: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm"
+  printf '\n%s\n' "Vite:"
+  printf '  %s\n' "This command installs Vite locally; no global Vite install is required."
+  printf '  %s\n' "Vite docs: https://vite.dev/guide/"
   exit 0
 fi
 
@@ -13,13 +20,19 @@ if [[ "$#" -gt 0 ]]; then
   exit 1
 fi
 
-if ! command -v npm >/dev/null 2>&1; then
-  printf '%s\n' "npm is required but was not found." >&2
+if ! command -v node >/dev/null 2>&1; then
+  printf '%s\n' "node is required but was not found." >&2
+  printf '%s\n' "Solution: install Node.js, then restart your terminal and run threejs again." >&2
+  printf '%s\n' "Download Node.js: https://nodejs.org/en/download" >&2
+  printf '%s\n' "Node/npm install docs: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" >&2
   exit 1
 fi
 
-if ! command -v node >/dev/null 2>&1; then
-  printf '%s\n' "node is required but was not found." >&2
+if ! command -v npm >/dev/null 2>&1; then
+  printf '%s\n' "npm is required but was not found." >&2
+  printf '%s\n' "Solution: install npm, or reinstall Node.js which usually includes npm." >&2
+  printf '%s\n' "npm install docs: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" >&2
+  printf '%s\n' "Node.js downloads: https://nodejs.org/en/download" >&2
   exit 1
 fi
 
@@ -220,8 +233,19 @@ body {
 }
 CSS
 
-npm install three
-npm install --save-dev vite
+if ! npm install three; then
+  printf '%s\n' "Failed to install three." >&2
+  printf '%s\n' "Solution: check your internet connection and npm setup, then run npm install three manually." >&2
+  printf '%s\n' "npm docs: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" >&2
+  exit 1
+fi
+
+if ! npm install --save-dev vite; then
+  printf '%s\n' "Failed to install Vite." >&2
+  printf '%s\n' "Solution: check your internet connection and npm setup, then run npm install --save-dev vite manually." >&2
+  printf '%s\n' "Vite docs: https://vite.dev/guide/" >&2
+  exit 1
+fi
 
 printf '\n%s\n' "Three.js project ready."
 printf '%s\n' "Run: npm run dev"

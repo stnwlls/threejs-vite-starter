@@ -2,6 +2,32 @@
 
 A minimal Three.js + Vite starter with the setup I usually want before building a scene.
 
+## Prerequisites
+
+You need Node.js and npm installed before using this starter. npm is used to install dependencies and run the project scripts.
+
+npm ships with Node.js. Choose the install method you prefer from the official docs:
+
+```txt
+https://nodejs.org/en/download
+https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+```
+
+Check that both commands work:
+
+```bash
+node --version
+npm --version
+```
+
+This starter uses Vite for the dev server and production build. Vite is installed locally from `package.json` when you run `npm install`; you do not need to install Vite globally.
+
+Vite docs:
+
+```txt
+https://vite.dev/guide/
+```
+
 ## Use This Starter
 
 Clone the repo:
@@ -111,7 +137,7 @@ This repo includes a reusable scaffold script at:
 scripts/threejs
 ```
 
-The script creates this same starter in the current directory, installs `three`, installs `vite`, and leaves you ready to run `npm run dev`.
+The script creates this same starter in the current directory, installs `three`, installs `vite` locally, and leaves you ready to run `npm run dev`.
 
 Example usage after installing the command:
 
@@ -190,12 +216,12 @@ The script is intentionally simple so it is easy to edit.
 
 - Help handling: supports `threejs --help`.
 - Argument guard: refuses arguments because it scaffolds the current directory.
-- Dependency checks: confirms `node` and `npm` are available.
+- Dependency checks: confirms `node` and `npm` are available and prints install links if either is missing.
 - Conflict checks: refuses to overwrite important files like `package.json`, `index.html`, `.gitignore`, `src/app.js`, and `src/style.css`.
 - Project name: derives the package name from the current directory.
 - Directory setup: creates `src` and `public/textures`.
 - File templates: writes `package.json`, `.gitignore`, `index.html`, `src/app.js`, and `src/style.css`.
-- Dependency install: runs `npm install three` and `npm install --save-dev vite`.
+- Dependency install: runs `npm install three` and `npm install --save-dev vite`, with troubleshooting links if an install fails.
 
 To customize the generated starter, edit the heredoc blocks in `scripts/threejs`. For example, change the block that starts with:
 
